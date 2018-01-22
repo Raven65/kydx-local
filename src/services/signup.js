@@ -11,14 +11,14 @@ Parse.User.enableUnsafeCurrentUser()
 
 export async function signup (data) {
   try {
-    Parse.User.logOut();
-    let user = new Parse.User();
+    Parse.User.logOut()
+    let user = new Parse.User()
     user.set('username', data.username)
     user.set('password', data.password)
-    console.info(data);
-    user = await user.signUp(null);
 
-    console.log("Sign up done.");
+    user = await user.signUp(null)
+    console.info(user)
+    console.log('Sign up done.')
     return Promise.resolve({
       success: true,
     })
@@ -33,4 +33,5 @@ export async function signup (data) {
     data,
   })
   */
+  
 }

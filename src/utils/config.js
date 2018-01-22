@@ -11,6 +11,8 @@ module.exports = {
   CORS: [],
   openPages: ['/login'],
   apiPrefix: '/api/v1',
+  appId:
+  secretId:
   APIV1,
   APIV2,
   api: {
