@@ -6,16 +6,18 @@ const { userSignup } = api
 let Parse = require('parse')
 
 Parse.initialize('2NjRq2vT9iTScCj5Oa95ha1CygCnrcityNbaBYMm')
-Parse.serverURL = 'http://127.0.0.1:1337/parse'
+Parse.serverURL = 'http://192.168.1.14:31337/parse'
 Parse.User.enableUnsafeCurrentUser()
 
 export async function signup (data) {
   try {
-    let user = new Parse.User()
+    Parse.User.logOut();
+    let user = new Parse.User();
     user.set('username', data.username)
     user.set('password', data.password)
-    user = await user.signUp(null)
-    console.info(user)
+    console.info(data);
+    user = await user.signUp(null);
+
     console.log("Sign up done.");
     return Promise.resolve({
       success: true,
